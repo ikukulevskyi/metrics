@@ -4,23 +4,77 @@ import psutil
 from sys import argv
 
 def main():
-    result = True
+    
     errmsg = ('Use command with parameter: \ncpu - CPU Metrics; \nmem - Memory Metrics.')
-
     try:
         param = argv[1]
-
         if param == 'cpu':
+        
             metrics = psutil.cpu_times()
+            sum = 0
+            for i in metrics:
+                sum = sum + i
+            
+            p = metrics.idle * 100 / sum
+            system = "system.cpu.idle " + str("%.2f" % p)
+            print(system)
+            
+            p = metrics.user * 100 / sum
+            system = "system.cpu.user " + str("%.2f" % p)
+            print(system)
+            
+            p = metrics.guest * 100 / sum
+            system = "system.cpu.guest " + str("%.2f" % p)
+            print(system)
+            
+            p = metrics.iowait * 100 / sum
+            system = "system.cpu.iowait " + str("%.2f" % p)
+            print(system)
+            
+            p = metrics.steal * 100 / sum
+            system = "system.cpu.stolen " + str("%.2f" % p)
+            print(system)
+            
+            p = metrics.system * 100 / sum
+            system = "system.cpu.system  " + str("%.2f" % p)
+            print(system)
         elif param == 'mem':
             metrics = psutil.virtual_memory()
+            
+            p = metrics.total
+            system = "virtual total " + str("%.f" % p)
+            print(system)
+            
+            p = metrics.used
+            system = "virtual used " + str("%.f" % p)
+            print(system)
+            
+            p = metrics.free
+            system = "virtual free " + str("%.f" % p)
+            print(system)
+            
+            p = metrics.shared
+            system = "virtual shared " + str("%.f" % p)
+            print(system)
+            
+            metricsswap = psutil.swap_memory()
+            
+            s = metricsswap.total
+            system = "swap total " + str("%.f" % s)
+            print(system)
+            
+            s = metricsswap.used
+            system = "swap used " + str("%.f" % s)
+            print(system)
+            
+            s = metricsswap.free
+            system = "swap free " + str("%.f" % s)
+            print(system)
+            
         else:
             print ('Error!' + ' ' + errmsg)
-            result = False
-        if result:
-            for k,v in metrics._asdict().items():
-                print (k + ' ' + str(v))
+        
     except IndexError:
-	    print ('Use command with parameter: \ncpu - CPU Metrics; \nmem - Memory Metrics.')
-
+        print ('Use command with parameter: \ncpu - CPU Metrics; \nmem - Memory Metrics.')
+    
 main()
