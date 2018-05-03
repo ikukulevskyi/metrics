@@ -56,3 +56,32 @@ swap total 10000265216
 swap used 14823424
 swap free 9985441792
 ```
+### Docker (Bash script)
+First move to forder with project on our host, and run build docker image, then run container. 
+```bash
+docker build -t metrics .
+docker run -i -t -v /proc:/opt/proc metrics:latest
+#RESULTS
+Name:systemd
+Pid:1
+Uid:0
+Name:watchdog/0
+Pid:10
+Uid:0
+Name:systemd-timesyn
+Pid:1002
+Uid:100
+Name:dhclient
+Pid:1005
+Uid:0
+Name:sshd
+Pid:1067
+Uid:0
+Name:iscsid
+Pid:1081
+Uid:0
+Name:iscsid
+Pid:1082
+Uid:0
+..........
+```
