@@ -11,4 +11,15 @@ The project consists of two parts:
 Для того что бы все работало нужно до установить такие пакеты на вашу ОС (Example on OS Debian 9):
 ```bash
 apt install python3  python3-pip
+pip3 install psutil
+```
+And install docker, more information on this [url]:https://docs.docker.com/install/linux/docker-ce/debian/
+
+## Examples
+### Metrics (Bash script)
+
+```bash
+./metrics.sh cpu
+
+
 ```
