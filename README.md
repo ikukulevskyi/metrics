@@ -4,7 +4,7 @@
 
 The project consists of two parts:
 1. Скрипт по выводу информации общей CPU и Memory вашей OS
-2. Image of Docker container, который выводит информацию about processes running on the host machine, PID and UID processes.
+2. Image of Docker container, который выводит информацию about processes running, PID and UID processes on the host machine.
 
 ## Additional packages for OS
 
