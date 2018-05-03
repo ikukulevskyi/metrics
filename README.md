@@ -13,7 +13,7 @@ The project consists of two parts:
 apt install python3  python3-pip
 pip3 install psutil
 ```
-And install docker, more information on this [url]:https://docs.docker.com/install/linux/docker-ce/debian/
+And install docker, more information on this [url](https://docs.docker.com/install/linux/docker-ce/debian/)
 
 ## Examples
 ### Metrics (Bash script)
