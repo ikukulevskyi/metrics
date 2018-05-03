@@ -15,60 +15,60 @@ def main():
             for i in metrics:
                 sum = sum + i
             
-            p = metrics.idle * 100 / sum
-            system = "system.cpu.idle " + str("%.2f" % p)
+            cpuIdle = metrics.idle * 100 / sum
+            system = "system.cpu.idle " + str("%.2f" % cpuIdle)
             print(system)
             
-            p = metrics.user * 100 / sum
-            system = "system.cpu.user " + str("%.2f" % p)
+            cpuUser = metrics.user * 100 / sum
+            system = "system.cpu.user " + str("%.2f" % cpuUser)
             print(system)
             
-            p = metrics.guest * 100 / sum
-            system = "system.cpu.guest " + str("%.2f" % p)
+            cpuGuest = metrics.guest * 100 / sum
+            system = "system.cpu.guest " + str("%.2f" % cpuGuest)
             print(system)
             
-            p = metrics.iowait * 100 / sum
-            system = "system.cpu.iowait " + str("%.2f" % p)
+            cpuIowait = metrics.iowait * 100 / sum
+            system = "system.cpu.iowait " + str("%.2f" %cpuIowait)
             print(system)
             
-            p = metrics.steal * 100 / sum
-            system = "system.cpu.stolen " + str("%.2f" % p)
+            cpuStolen = metrics.steal * 100 / sum
+            system = "system.cpu.stolen " + str("%.2f" % cpuStolen)
             print(system)
             
-            p = metrics.system * 100 / sum
-            system = "system.cpu.system  " + str("%.2f" % p)
+            cpuSystem = metrics.system * 100 / sum
+            system = "system.cpu.system  " + str("%.2f" % cpuSystem)
             print(system)
         elif param == 'mem':
             metrics = psutil.virtual_memory()
             
-            p = metrics.total
-            system = "virtual total " + str("%.f" % p)
+            virtualTotal = metrics.total
+            system = "virtual total " + str("%.f" % virtualTotal)
             print(system)
             
-            p = metrics.used
-            system = "virtual used " + str("%.f" % p)
+            virtualUsed = metrics.used
+            system = "virtual used " + str("%.f" % virtualUsed)
             print(system)
             
-            p = metrics.free
-            system = "virtual free " + str("%.f" % p)
+            virtualFree = metrics.free
+            system = "virtual free " + str("%.f" % virtualFree)
             print(system)
             
-            p = metrics.shared
-            system = "virtual shared " + str("%.f" % p)
+            virtualShared = metrics.shared
+            system = "virtual shared " + str("%.f" % virtualShared)
             print(system)
             
             metricsswap = psutil.swap_memory()
             
-            s = metricsswap.total
-            system = "swap total " + str("%.f" % s)
+            swapTotal = metricsswap.total
+            system = "swap total " + str("%.f" % swapTotal)
             print(system)
             
-            s = metricsswap.used
-            system = "swap used " + str("%.f" % s)
+            swapUsed = metricsswap.used
+            system = "swap used " + str("%.f" % swapUsed)
             print(system)
             
-            s = metricsswap.free
-            system = "swap free " + str("%.f" % s)
+            swapFree = metricsswap.free
+            system = "swap free " + str("%.f" % swapFree)
             print(system)
             
         else:
