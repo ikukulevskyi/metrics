@@ -3,17 +3,22 @@
 ## Description
 
 The project consists of two parts:
-1. Скрипт по выводу информации общей CPU и Memory вашей OS
-2. Image of Docker container, который выводит информацию about processes running, PID and UID processes on the host machine.
+1. A script for outputing general information about CPU and Memory of host mashine.
+2. Image of Docker container, that showing information about processes running, PID and UID processes on the host machine.
 
 ## Additional packages for OS
 
-Для того что бы все работало нужно до установить такие пакеты на вашу ОС (Example on OS Debian 9):
+### Dependencies
+#### 1. Python
 ```bash
 apt install python3  python3-pip
+```
+#### 2. psutil
+```bash
 pip3 install psutil
 ```
-And install docker, more information on this [url](https://docs.docker.com/install/linux/docker-ce/debian/)
+#### 3. Docker
+You can find instruction for Docker install [here](https://docs.docker.com/install/linux/docker-ce/debian/)
 
 ## Examples
 ### Metrics (Bash script)
@@ -57,7 +62,11 @@ swap used 14823424
 swap free 9985441792
 ```
 ### Docker (Bash script)
-First move to forder with project on our host, and run build docker image, then run container. 
+
+Steps:
+1. Start build process of Docker image from project directory on your host machine
+2. Run container
+
 ```bash
 docker build -t metrics .
 docker run -i -t -v /proc:/opt/proc metrics:latest
@@ -85,4 +94,4 @@ Pid:1082
 Uid:0
 ..........
 ```
-Also this docker project is on [hub.docker.com](https://hub.docker.com/r/zozulya/metrics/)
+Also this project is published on [hub.docker.com](https://hub.docker.com/r/zozulya/metrics/)
