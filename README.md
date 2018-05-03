@@ -19,7 +19,23 @@ And install docker, more information on this [url](https://docs.docker.com/insta
 ### Metrics (Bash script)
 
 ```bash
-./metrics.sh cpu
+~# ./metrics.sh cpu
+CPU Metrics:
+        system.cpu.idle 98.08
+        system.cpu.user 0.75
+        system.cpu.guest 0.00
+        system.cpu.iowait 0.42
+        system.cpu.stolen 0.00
+        system.cpu.system 0.71
 
-
+:~# ./metrics.sh mem
+Memory Metrics:
+        virtual total 4037080
+        virtual used 566488
+        virtual free 2404880
+        virtual shared 57136
+        swap total 9765884
+        swap used 14476
+        swap free 9751408
 ```
+### Metrics (Python script)
