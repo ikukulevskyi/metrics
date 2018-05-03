@@ -8,7 +8,7 @@ The project consists of two parts:
 
 ## Dependencies
 
-#### 1. Python
+#### 1. Python (Debian OS)
 ```bash
 apt install python3  python3-pip
 ```
@@ -16,7 +16,7 @@ apt install python3  python3-pip
 ```bash
 pip3 install psutil
 ```
-#### 3. Docker
+#### 3. Docker (Debian OS)
 You can find instruction for Docker install [here](https://docs.docker.com/install/linux/docker-ce/debian/)
 
 ## Examples
