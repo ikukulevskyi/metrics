@@ -5,7 +5,7 @@ from sys import argv
 
 def main():
     
-    errmsg = ('Use command with parameter: \ncpu - CPU Metrics; \nmem - Memory Metrics.')
+    errmsg = ('Use command with parameter: \ncpu - CPU Metrics \nmem - Memory Metrics')
     try:
         param = argv[1]
         if param == 'cpu':
@@ -16,65 +16,66 @@ def main():
                 sum = sum + i
             
             cpuIdle = metrics.idle * 100 / sum
-            system = "system.cpu.idle " + str("%.2f" % cpuIdle)
-            print(system)
+            result = "system.cpu.idle " + str("%.2f" % cpuIdle)
+            print(result)
             
             cpuUser = metrics.user * 100 / sum
-            system = "system.cpu.user " + str("%.2f" % cpuUser)
-            print(system)
+            result = "system.cpu.user " + str("%.2f" % cpuUser)
+            print(result)
             
             cpuGuest = metrics.guest * 100 / sum
-            system = "system.cpu.guest " + str("%.2f" % cpuGuest)
-            print(system)
+            result = "system.cpu.guest " + str("%.2f" % cpuGuest)
+            print(result)
             
             cpuIowait = metrics.iowait * 100 / sum
-            system = "system.cpu.iowait " + str("%.2f" %cpuIowait)
-            print(system)
+            result = "system.cpu.iowait " + str("%.2f" %cpuIowait)
+            print(result)
             
             cpuStolen = metrics.steal * 100 / sum
-            system = "system.cpu.stolen " + str("%.2f" % cpuStolen)
-            print(system)
+            result = "system.cpu.stolen " + str("%.2f" % cpuStolen)
+            print(result)
             
             cpuSystem = metrics.system * 100 / sum
-            system = "system.cpu.system  " + str("%.2f" % cpuSystem)
-            print(system)
+            result = "system.cpu.system  " + str("%.2f" % cpuSystem)
+            print(result)
+            
         elif param == 'mem':
             metrics = psutil.virtual_memory()
             
             virtualTotal = metrics.total
-            system = "virtual total " + str("%.f" % virtualTotal)
-            print(system)
+            result = "virtual total " + str("%.f" % virtualTotal)
+            print(result)
             
             virtualUsed = metrics.used
-            system = "virtual used " + str("%.f" % virtualUsed)
-            print(system)
+            result = "virtual used " + str("%.f" % virtualUsed)
+            print(result)
             
             virtualFree = metrics.free
-            system = "virtual free " + str("%.f" % virtualFree)
-            print(system)
+            result = "virtual free " + str("%.f" % virtualFree)
+            print(result)
             
             virtualShared = metrics.shared
-            system = "virtual shared " + str("%.f" % virtualShared)
-            print(system)
+            result = "virtual shared " + str("%.f" % virtualShared)
+            print(result)
             
             metricsswap = psutil.swap_memory()
             
             swapTotal = metricsswap.total
-            system = "swap total " + str("%.f" % swapTotal)
-            print(system)
+            result = "swap total " + str("%.f" % swapTotal)
+            print(result)
             
             swapUsed = metricsswap.used
-            system = "swap used " + str("%.f" % swapUsed)
-            print(system)
+            result = "swap used " + str("%.f" % swapUsed)
+            print(result)
             
             swapFree = metricsswap.free
-            system = "swap free " + str("%.f" % swapFree)
-            print(system)
+            result = "swap free " + str("%.f" % swapFree)
+            print(result)
             
         else:
             print ('Error!' + ' ' + errmsg)
         
     except IndexError:
-        print ('Use command with parameter: \ncpu - CPU Metrics; \nmem - Memory Metrics.')
+        print ('Use command with parameter: \ncpu - CPU Metrics \nmem - Memory Metrics')
     
 main()
