@@ -6,9 +6,8 @@ The project consists of two parts:
 1. A script for outputing general information about CPU and Memory of host mashine.
 2. Image of Docker container, that showing information about processes running, PID and UID processes on the host machine.
 
-## Additional packages for OS
+## Dependencies
 
-### Dependencies
 #### 1. Python
 ```bash
 apt install python3  python3-pip
